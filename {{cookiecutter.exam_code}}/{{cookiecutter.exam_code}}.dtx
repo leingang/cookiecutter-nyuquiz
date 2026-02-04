@@ -89,6 +89,21 @@
   \directlua{utils = require("utils")}
 \fi
 
+{%- endraw %}
+{%- if cookiecutter.get('extra_latex_packages') -%}
+{%- set extra_packages = cookiecutter['extra_latex_packages'].split(',') -%}
+{%- for pkg in extra_packages -%}
+\usepackage{{ pkg | trim | embrace }}
+{%- endfor -%}
+{%- endif -%}
+{%- if cookiecutter.get('extra_tikz_libraries') -%}
+{%- set extra_libraries = cookiecutter['extra_tikz_packages'].split(',') -%}
+{%- for lib in extra_packages -%}
+\usetikzlibrary{{ lib | trim | embrace }}
+{%- endfor -%}
+{%- endif -%}
+{% raw -%}
+
 
 \begin{document}
 \maketitle
