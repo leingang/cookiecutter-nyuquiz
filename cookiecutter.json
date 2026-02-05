@@ -7,6 +7,7 @@
     "instructor_name" : "",
     "term_name" : "",
     "site_id" : "",
+    "quiz_duration" : 20,
     "number_copies" : 45,
     "has_versions" : false,
     "use_nyu_fonts": false,

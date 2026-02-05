@@ -4,6 +4,7 @@
 #}
 {%- set bgroup = "{" -%}
 {%- set egroup = "}" -%}
+{%- set space = " " %}
 {%- macro random_int() %}{% for n in [0,1,2,3,4,5,6] %}{{ [0,1,2,3,4,5,6,7,8,9]|random }}{% endfor %}{% endmacro -%}
 {%- if cookiecutter['has_versions'] -%}
 {%- set versions = cookiecutter['versions_csv'].split(',') -%}
@@ -102,7 +103,13 @@
 \usetikzlibrary{{ lib | trim | embrace }}
 {% endfor -%}
 {%- endif %}
-{% raw -%}
+{% if cookiecutter.get('quiz_duration') -%}
+\newcommand{\quizduration}{{ cookiecutter.quiz_duration | embrace }}
+{%- else -%}
+\newcommand{\quizduration}{20}
+{%- endif %}
+{%- raw %}    
+
 
 
 \begin{document}
@@ -116,7 +123,8 @@ If you wish to change your selection, erase your marks completely.
 
 \iflargeprint
   \begin{instructions}
-    This is a 20-minute quiz.  There are problems on the front and on the back.
+    This is a \quizduration-minute quiz.  
+    There are problems on the front and on the back.
     Notes and calculators are not allowed. Any student taking 
     this ``large print'' quiz version is allowed unlimited scrap paper.
     Please submit all scrap paper when submitting the quiz.
@@ -124,7 +132,8 @@ If you wish to change your selection, erase your marks completely.
 \cleardoublepage
 \else
   \begin{instructions}
-    This is a 20-minute quiz.  There are problems on the front and on the back.
+    This is a \quizduration-minute quiz.  
+    There are problems on the front and on the back.
     Notes, calculators, and scrap paper are not allowed.
   \end{instructions}
   \bigskip
