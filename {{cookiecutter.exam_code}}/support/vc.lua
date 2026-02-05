@@ -1,4 +1,3 @@
-{%- raw -%}
 #!/usr/bin/env texlua
 -- This is a Lua script based on the 'vc' shell script for TeX.
 -- The original shell script is Public Domain.
@@ -168,4 +167,3 @@ end
 parse_args(arg)
 query_git_info()
 
-{%- endraw -%}
