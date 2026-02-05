@@ -1,6 +1,6 @@
 #!/usr/bin/env texlua
 
-module = "q01"
+module = "{cookiecutter.exam_code}"
 bundle = "coursedocs-0122-1264-011"
 maindir = ".."
 
